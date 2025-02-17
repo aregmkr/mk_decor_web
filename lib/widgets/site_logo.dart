@@ -6,14 +6,17 @@ class SiteLogo extends StatelessWidget {
   final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Text(
-        "MKRTCHYAN's DECOR",
-        style: TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.bold,
-          color: CustomColors.orange_m,
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: GestureDetector(
+        onTap: onTap,
+        child: Text(
+          "MKRTCHYAN'S DECOR",
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
         ),
       ),
     );

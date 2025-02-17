@@ -11,20 +11,10 @@ class HomeDesktop extends StatelessWidget {
     return Container (
       height: 60.0,
       width: double.maxFinite,
-      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20,),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-            colors: [
-              Colors.transparent,
-              CustomColors.yellow_m
-            ]
-        ),
-        borderRadius: BorderRadius.circular(100),
-      ),
+      color: Colors.black,
       child: Row(
         children: [
           SiteLogo(onTap: () {
-
           },),
           Spacer(),
           for (int i = 0; i < navTitles.length; ++i)

@@ -13,7 +13,7 @@ class OffersMobile extends StatelessWidget {
       ),
       child: Column(
         children: [
-          for (int i = 0; i < skillItems.length; ++i)
+          for (int i = 0; i < offerItems.length; ++i)
             Container(
               width: 400,
               decoration: BoxDecoration(
@@ -23,7 +23,7 @@ class OffersMobile extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    skillItems[i]["title"],
+                    offerItems[i]["title"],
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 32,
@@ -32,7 +32,7 @@ class OffersMobile extends StatelessWidget {
                   ),
                   SizedBox(height: 5,),
                   Image.asset(
-                    skillItems[i]["img"],
+                    offerItems[i]["img"],
                     width: 200,
                     height: 200,
                     fit: BoxFit.cover,

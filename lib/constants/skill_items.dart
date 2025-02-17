@@ -1,4 +1,4 @@
-const List<Map> skillItems = [
+const List<Map> offerItems = [
   {
     "img": "assets/murble.jpg",
     "title": "Մարմար"

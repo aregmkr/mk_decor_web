@@ -17,6 +17,8 @@ import '../widgets/header_mobile.dart';
 import 'package:before_after/before_after.dart';
 import 'dart:js' as js;
 
+import '../widgets/variant_for_offers.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -64,8 +66,8 @@ class _HomePageState extends State<HomePage> {
               MainMobile(),
             // What we can do
             Container(
-              height: constraints.maxWidth >= medDesktopWidth ? 2400 : 1300,
-              padding: EdgeInsets.fromLTRB(25, 20, 25, 60),
+              height: constraints.maxWidth >= medDesktopWidth ? 800 : 1300,
+              padding: EdgeInsets.fromLTRB(25, 20, 25, 0),
               width: MediaQueryData().size.width,
               color: Colors.white,
               child: Column(
@@ -73,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   // title
                   const Text(
-                    "Մեր ծառայությունները",
+                    "Մեր առաջարկները",
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -82,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   SizedBox(height: 20),
                   if (constraints.maxWidth >= medDesktopWidth)
-                    const OffersDesktop()
+                    const OffersDesktop2()
                   else
                     const OffersMobile(),
                 ],
@@ -93,7 +95,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(50.0),
               child: Container(
-                height: constraints.maxWidth >= medDesktopWidth ? 600 : 300,
+                height: constraints.maxWidth >= medDesktopWidth ? 600 : 400,
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: const BeforeAfterSlider(),

@@ -5,7 +5,7 @@ BoxDecoration kHeaderDecoration = BoxDecoration(
   gradient: const LinearGradient(
       colors: [
         Colors.transparent,
-        CustomColors.bg
+        CustomColors.white_m
       ]
   ),
   borderRadius: BorderRadius.circular(100),

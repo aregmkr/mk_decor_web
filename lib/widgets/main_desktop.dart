@@ -36,22 +36,29 @@ class MainDesktop extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 250,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: CustomColors.orange_m,
-                      ),
-                      child: InkWell(
-                        onTap: () {
-                          js.context.callMethod('open', [
-                            'https://www.facebook.com/reel/1267446130995208'
-                          ]);
-                        },
-                        child: Text(
-                          "See Magic",
-                          style: TextStyle(color: Colors.white),
+                  GestureDetector(
+                    onTap: () {
+                      js.context.callMethod('open', [
+                        'https://www.facebook.com/reel/1267446130995208'
+                      ]);
+                    },
+                    child: SizedBox(
+                      width: 250,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: CustomColors.orange_m,
+                        ),
+                        child: InkWell(
+                          onTap: () {
+                            js.context.callMethod('open', [
+                              'https://www.facebook.com/reel/1267446130995208'
+                            ]);
+                          },
+                          child: Text(
+                            "See Magic",
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
                       ),
                     ),
@@ -59,7 +66,7 @@ class MainDesktop extends StatelessWidget {
                 ],
               ),
               Expanded(
-                flex: 2, // Takes 2/3 of the screen
+                flex: 2,
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Stack(
@@ -67,8 +74,12 @@ class MainDesktop extends StatelessWidget {
                     children: [
                       // Video background
                       Positioned.fill(
-                        child: VideoBackground(
+                        child: Container (
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height / 2,
+                          child: VideoBackground(
                           videoPath: "assets/mp4/video_decor.mp4",
+                          ),
                         ),
                       ),
                       Align(

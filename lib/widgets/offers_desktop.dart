@@ -9,55 +9,95 @@ class OffersDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // image
-        ConstrainedBox(
-          constraints: const BoxConstraints(
-            maxWidth: 800,
+    return Container(
+      height: 600,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // image
+          ConstrainedBox(
+            constraints: const BoxConstraints(
+              maxWidth: 800,
+              maxHeight: 800,
+            ),
+            child: SizedBox(
+              height: 800,
+              child: Wrap(
+                spacing: 20,
+                runSpacing: 20,
+                children: [
+                  for (int i = 0; i < offerItems.length; ++i)
+                    ZoomEffectItem(
+                      title: offerItems[i]["title"],
+                      imagePath: offerItems[i]["img"],
+                    ),
+                ],
+              ),
+            ),
           ),
-          child: Wrap(
-            spacing: 20,
-            runSpacing: 20,
-            children: [
-              for (int i = 0; i < skillItems.length; ++i)
-                Container(
-                  width: 1000,
-                  decoration: BoxDecoration(
-                    color: Colors.blueGrey,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Column(
-                    children: [
-                      Text(
-                        skillItems[i]["title"],
-                        style: GoogleFonts.abel(),
-                        // style: TextStyle(
-                        //   fontWeight: FontWeight.bold,
-                        //   fontSize: 32,
-                        //   color:  Colors.black,
-                        //
-                        // ),
-                      ),
-                      SizedBox(height: 50,),
-                      Image.asset(
-                        skillItems[i]["img"],
-                        width: 500,
-                        height: 400,
-                        fit: BoxFit.cover,
-                      ),
-                      // Spacer(),
+        ],
+      ),
+    );
+  }
+}
 
-                    ],
-                  ),
+class ZoomEffectItem extends StatefulWidget {
+  final String title;
+  final String imagePath;
+
+  const ZoomEffectItem(
+      {super.key, required this.title, required this.imagePath});
+
+  @override
+  _ZoomEffectItemState createState() => _ZoomEffectItemState();
+}
+
+class _ZoomEffectItemState extends State<ZoomEffectItem> {
+  double _scale = 1.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) {
+        setState(() {
+          _scale = 1.2;
+        });
+      },
+      onExit: (_) {
+        setState(() {
+          _scale = 1.0;
+        });
+      },
+      child: AnimatedScale(
+        scale: _scale,
+        duration: const Duration(milliseconds: 300),
+        child: Container(
+          width: 350,
+          decoration: BoxDecoration(
+            color: Colors.blueGrey,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Column(
+            children: [
+              Text(
+                widget.title,
+                style: GoogleFonts.abel(),
+              ),
+              const SizedBox(height: 50),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(
+                  widget.imagePath,
+                  width: 250,
+                  height: 200,
+                  fit: BoxFit.cover,
                 ),
-              // name
+              ),
             ],
           ),
         ),
-      ],
+      ),
     );
   }
 }

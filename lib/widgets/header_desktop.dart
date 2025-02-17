@@ -4,7 +4,8 @@ import '../constants/colors.dart';
 import '../constants/nav_items.dart';
 
 class HomeDesktop extends StatelessWidget {
-  const HomeDesktop({super.key});
+  const HomeDesktop({super.key, required this.onNavMenuTap});
+  final Function(int) onNavMenuTap;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,9 @@ class HomeDesktop extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 20),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  onNavMenuTap(i);
+                },
                 style: ButtonStyle(),
                 child: Text(
                   navTitles[i],
